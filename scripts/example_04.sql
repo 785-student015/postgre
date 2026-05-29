@@ -7,4 +7,88 @@
 --select emp_name, to_char(birthday, 'Day, Month DD, YYYY') from employee;
 --select emp_name, to_char(sal, '9G999G999D99') from employee;
 --select emp_name, birthday, sal, comm, sal+coalesce(comm,0) from employee;
-select emp_name, to_char(birthday, 'DY, MON, Y') from employee;
+--select emp_name, to_char(birthday, 'DY, MON, Y') from employee;
+-- select emp_name,
+--     case 
+--         WHEN gender = 1 THEN 'íj'
+--                         ELSE 'èó'
+--     end
+-- from employee;
+
+-- select emp_name,
+--     case gender
+--         WHEN 1 THEN 'íj'
+--                 ELSE 'èó'
+--     end
+-- from employee;
+-- select emp_name, 
+-- birthday,
+--  sal, 
+--  comm,
+--  sal+
+--  CASE comm
+--  when null then 0 
+--             else comm 
+-- end 
+--  from employee;
+--select * from employee order by birthday desc;
+--select * from employee order by gender desc,sal;
+--select emp_name, birthday, sal, comm, sal+ comm as åéé˚ from employee order by åéé˚ desc;
+-- select * from employee order by sal desc limit 3 offset 1;
+
+-- --é¿èK-1
+-- select * from product;
+-- --é¿èK-2
+-- select prod_id, cost, discount from product;
+-- --é¿èK-3
+-- select prod_name, cost, discount, cost*discount as äÑà¯âøäi from product;
+-- --é¿èK-4
+-- select prod_name, cost, discount, cost*coalesce(discount,1) as äÑà¯âøäi from product;
+-- select emp_name, sal from employee
+-- where sal > 2000 or sal = 2000;
+-- select emp_name, sal from employee
+-- where gender = 2;
+-- select emp_name, sal from employee
+-- where emp_name = 'à¿ïî çOç]';
+-- select emp_name, sal, birthday from employee
+-- where birthday >='1980-01-01';
+-- select emp_name, sal from employee
+-- where sal >=2000 and sal <=3000;
+-- select emp_name, sal, emp_id from employee
+-- where emp_id = 2 or emp_id = 4 or emp_id = 7; 
+-- select emp_name, sal, emp_id from employee
+-- where emp_id in (2,4,7); 
+-- select emp_name, sal from employee
+-- where not ((sal >= 2000 and sal <=3000)or gender = 2);
+-- select emp_name, sal from employee
+-- where (sal between 2000 and 700)or gender = 2;
+-- select * from customer
+-- where address not like 'ìåãûìs%';
+-- select cust_id, cust_name from customer
+-- where cust_name like '_ìc%éq';
+-- select * from employee
+-- where comm is not null;
+--é¿èK-1
+-- select * from product
+-- where cost >= 20000;
+-- --é¿èK-2
+-- select cust_id, cust_name from customer
+-- where fax is null;
+-- --é¿èK3
+-- select cust_id, cust_name, tel from customer
+-- where tel not like '03%'and tel not like'06%';
+-- select count (*), sum(sal) from employee;
+-- select count(*) - count(comm) from employee;
+-- select dept_id, count(*), sum(sal), avg(sal), min(sal), max(sal) from employee
+-- group by dept_id
+-- order by dept_id;
+-- select gender, count(*) from employee
+-- group by gender
+-- order by gender;
+-- select dept_id, gender, count(*),avg(sal) from employee
+-- group by dept_id,gender
+-- order by dept_id, gender;
+select dept_id, sum(sal), avg(sal), min(sal), max(sal) from employee
+group by dept_id
+    having sum(sal) <= 5000
+order by dept_id;
